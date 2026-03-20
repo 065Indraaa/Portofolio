@@ -7,6 +7,7 @@ import lumiImg from "../assets/Lumi.png";
 import hackatonImg from "../assets/Hackaton.jpg";
 import mobileImg from "../assets/Mobile.png";
 import desktopImg from "../assets/Dekstop.png";
+import ponyinImg from "../assets/Ponyin.png";
 import { useLanguage } from "../context/LanguageContext";
 
 /* ─── MODAL DETAIL WENWORK ─────────────────────────────────── */
@@ -133,6 +134,110 @@ function WenworkModal({ onClose }) {
   );
 }
 
+/* ─── MODAL DETAIL PONYIN ─────────────────────────────────── */
+function PonyinModal({ onClose, lang, t }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+      style={{
+        position: "fixed", inset: 0, zIndex: 9000,
+        background: "rgba(0,0,0,0.85)", backdropFilter: "blur(12px)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        padding: "20px", animation: "fadeIn 0.3s ease",
+      }}>
+      <div style={{
+        background: "#0d0d0d", boxSizing: "border-box",
+        border: "1px solid rgba(244,242,238,0.1)", borderRadius: "16px",
+        maxWidth: "880px", width: "100%", maxHeight: "92vh",
+        overflowY: "auto", position: "relative",
+        boxShadow: "0 60px 120px rgba(0,0,0,0.8)",
+        animation: "scaleIn 0.3s cubic-bezier(0.16,1,0.3,1)",
+      }}>
+        <div style={{
+          position: "sticky", top: 0, zIndex: 10,
+          background: "rgba(13,13,13,0.8)", backdropFilter: "blur(12px)",
+          borderBottom: "1px solid rgba(244,242,238,0.08)",
+          display: "flex", justifyContent: "space-between", alignItems: "center",
+          padding: "16px 24px",
+        }}>
+          <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.2rem", fontWeight: 700, color: "#f4f2ee" }}>PONYIN</div>
+          <button
+            onClick={onClose}
+            style={{
+              width: "32px", height: "32px", borderRadius: "50%",
+              border: "1px solid rgba(244,242,238,0.1)", background: "rgba(244,242,238,0.05)",
+              color: "rgba(244,242,238,0.8)", display: "flex", alignItems: "center", justifyContent: "center",
+              cursor: "pointer", transition: "all 0.2s",
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#f4f2ee"; e.currentTarget.style.color = "#0a0a0a"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "rgba(244,242,238,0.05)"; e.currentTarget.style.color = "rgba(244,242,238,0.8)"; }}>
+            ✕
+          </button>
+        </div>
+
+        <div style={{ width: "100%", background: "#111", display: "flex", justifyContent: "center", padding: "40px" }}>
+          <img src={ponyinImg} alt="PONYIN" style={{ maxHeight: "500px", objectFit: "contain" }} />
+        </div>
+
+        <div style={{ padding: "40px", boxSizing: "border-box" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "8px 16px", marginBottom: "20px", background: "rgba(26,54,93,0.15)", border: "1px solid rgba(26,54,93,0.4)", borderRadius: "40px", fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", letterSpacing: "0.05em", color: "rgba(150,180,255,1)" }}>
+            🚀 Official Trading Intel Hub
+          </div>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.8rem", fontWeight: 900, letterSpacing: "-0.02em", color: "#f4f2ee", marginBottom: "8px" }}>PONYIN</h2>
+          <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", fontStyle: "italic", color: "rgba(244,242,238,0.4)", marginBottom: "32px" }}>
+            {lang === "en" ? projects[1].subtitle_en : projects[1].subtitle}
+          </p>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "40px" }}>
+            {[
+              lang === "en" ? projects[1].modalP1_en : projects[1].modalP1,
+              lang === "en" ? projects[1].modalP2_en : projects[1].modalP2,
+              lang === "en" ? projects[1].modalP3_en : projects[1].modalP3
+            ].map((text, i) => (
+              <p key={i} style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.1rem", lineHeight: 1.8, color: "rgba(244,242,238,0.7)" }}>{text}</p>
+            ))}
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "16px", marginBottom: "40px" }}>
+            {[
+              { label: t("platform"), val: "Web App" }, { label: "Design", val: "Custom SVG & UI" }, { label: "Framework", val: "React JS" },
+            ].map((m) => (
+              <div key={m.label} style={{ background: "rgba(244,242,238,0.03)", border: "1px solid rgba(244,242,238,0.06)", borderRadius: "12px", padding: "20px" }}>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.3rem", fontWeight: 700, marginBottom: "6px", color: "#f4f2ee" }}>{m.val}</div>
+                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(244,242,238,0.4)" }}>{m.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginBottom: "40px" }}>
+            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(244,242,238,0.4)", marginBottom: "16px" }}>{t("techStack")}</div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+              {["React JS", "Custom SVG", "Solana", "Web3", "UI/UX"].map((techItem) => (
+                <span key={techItem} style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.95rem", padding: "8px 16px", borderRadius: "20px", border: "1px solid rgba(26,54,93,0.3)", color: "rgba(150,180,255,0.9)", background: "rgba(26,54,93,0.1)" }}>{techItem}</span>
+              ))}
+            </div>
+          </div>
+
+          <a href="https://ponyin.id" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px", width: "100%", padding: "16px", background: "#f4f2ee", color: "#0a0a0a", fontFamily: "'Syne', sans-serif", fontSize: "0.95rem", fontWeight: 700, borderRadius: "8px", textTransform: "uppercase", letterSpacing: "0.1em", transition: "all 0.3s" }} onMouseEnter={e => e.currentTarget.style.background = "rgba(244,242,238,0.85)"} onMouseLeave={e => e.currentTarget.style.background = "#f4f2ee"}>
+            {t("visitPonyin")}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── MODAL DETAIL AORA ─────────────────────────────────── */
 function AoraModal({ onClose, lang, t }) {
   useEffect(() => {
@@ -197,14 +302,14 @@ function AoraModal({ onClose, lang, t }) {
           </div>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.8rem", fontWeight: 900, letterSpacing: "-0.02em", color: "#f4f2ee", marginBottom: "8px" }}>AORA</h2>
           <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", fontStyle: "italic", color: "rgba(244,242,238,0.4)", marginBottom: "32px" }}>
-            {lang === "en" ? projects[1].subtitle_en : projects[1].subtitle}
+            {lang === "en" ? projects[2].subtitle_en : projects[2].subtitle}
           </p>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "40px" }}>
             {[
-              lang === "en" ? projects[1].modalP1_en : projects[1].modalP1,
-              lang === "en" ? projects[1].modalP2_en : projects[1].modalP2,
-              lang === "en" ? projects[1].modalP3_en : projects[1].modalP3
+              lang === "en" ? projects[2].modalP1_en : projects[2].modalP1,
+              lang === "en" ? projects[2].modalP2_en : projects[2].modalP2,
+              lang === "en" ? projects[2].modalP3_en : projects[2].modalP3
             ].map((text, i) => (
               <p key={i} style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.1rem", lineHeight: 1.8, color: "rgba(244,242,238,0.7)" }}>{text}</p>
             ))}
@@ -304,14 +409,14 @@ function QhadirinModal({ onClose, lang, t }) {
           </div>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.8rem", fontWeight: 900, letterSpacing: "-0.02em", color: "#f4f2ee", marginBottom: "8px" }}>Q-HADIRIN</h2>
           <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.25rem", fontStyle: "italic", color: "rgba(244,242,238,0.4)", marginBottom: "32px" }}>
-            {lang === "en" ? projects[2].subtitle_en : projects[2].subtitle}
+            {lang === "en" ? projects[3].subtitle_en : projects[3].subtitle}
           </p>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "40px" }}>
             {[
-              lang === "en" ? projects[2].modalP1_en : projects[2].modalP1,
-              lang === "en" ? projects[2].modalP2_en : projects[2].modalP2,
-              lang === "en" ? projects[2].modalP3_en : projects[2].modalP3
+              lang === "en" ? projects[3].modalP1_en : projects[3].modalP1,
+              lang === "en" ? projects[3].modalP2_en : projects[3].modalP2,
+              lang === "en" ? projects[3].modalP3_en : projects[3].modalP3
             ].map((text, i) => (
               <p key={i} style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.1rem", lineHeight: 1.8, color: "rgba(244,242,238,0.7)" }}>{text}</p>
             ))}
@@ -331,7 +436,7 @@ function QhadirinModal({ onClose, lang, t }) {
           <div style={{ marginBottom: "40px" }}>
             <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(244,242,238,0.4)", marginBottom: "16px" }}>{t("techStack")}</div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-              {projects[2].tech.map((techItem) => (
+              {projects[3].tech.map((techItem) => (
                 <span key={techItem} style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.95rem", padding: "8px 16px", borderRadius: "20px", border: "1px solid rgba(0,123,255,0.3)", color: "rgba(100,180,255,0.9)", background: "rgba(0,123,255,0.1)" }}>{techItem}</span>
               ))}
             </div>
@@ -523,6 +628,7 @@ export default function Projects() {
   const { ref: headRef, visible: headVisible } = useReveal();
   const [activeFilterId, setActiveFilterId] = useState("all");
   const [wenworkModalOpen, setWenworkModalOpen] = useState(false);
+  const [ponyinModalOpen, setPonyinModalOpen] = useState(false);
   const [aoraModalOpen, setAoraModalOpen] = useState(false);
   const [qhadirinModalOpen, setQhadirinModalOpen] = useState(false);
   const { t, lang } = useLanguage();
@@ -539,6 +645,7 @@ export default function Projects() {
   return (
     <section id="projects" style={{ padding: "100px 0", background: "#0a0a0a", position: "relative" }}>
       {wenworkModalOpen && <WenworkModal onClose={() => setWenworkModalOpen(false)} />}
+      {ponyinModalOpen && <PonyinModal onClose={() => setPonyinModalOpen(false)} lang={lang} t={t} />}
       {aoraModalOpen && <AoraModal onClose={() => setAoraModalOpen(false)} lang={lang} t={t} />}
       {qhadirinModalOpen && <QhadirinModal onClose={() => setQhadirinModalOpen(false)} lang={lang} t={t} />}
 
@@ -580,6 +687,7 @@ export default function Projects() {
               return <FeaturedCard key={p.id} project={p} index={i} onOpenModal={() => setWenworkModalOpen(true)} lang={lang} t={t} />;
             }
             return <StandardCard key={p.id} project={p} index={i} lang={lang} onClick={() => {
+              if (p.title === "PONYIN") setPonyinModalOpen(true);
               if (p.title === "AORA") setAoraModalOpen(true);
               if (p.title === "Q-HADIRIN") setQhadirinModalOpen(true);
             }} />;

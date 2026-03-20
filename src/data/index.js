@@ -1,5 +1,6 @@
 import mobileImg from "../assets/Mobile.png";
 import desktopImg from "../assets/Dekstop.png";
+import ponyinImg from "../assets/Ponyin.png";
 
 // Project data with mockup screenshots
 // Web projects use desktop browser mockup, mobile use Android mockup
@@ -35,6 +36,36 @@ export const projects = [
     modalP3_en: "Freelancers can browse job opportunities by category and submit proposals, while Project Owners find it easy to create job postings, set budgets in SOL, and release payments automatically.",
     modalHackathonDesc: "WENWORK meraih juara ke-5 pada ajang Lumi.new Black Friday Hackathon (Nov 20 – Dec 30, 2025).",
     modalHackathonDesc_en: "WENWORK secured 5th place globally at the Lumi.new Black Friday Hackathon (Nov 20 – Dec 30, 2025)."
+  },
+  {
+    id: 1,
+    type: "web",
+    category: "Web & Education",
+    category_en: "Web & Education",
+    title: "PONYIN",
+    subtitle: "Trading Intel Hub & Educational Platform",
+    subtitle_en: "Trading Intel Hub & Educational Platform",
+    desc: "Platform edukasi interaktif untuk trader crypto on-chain Solana. Menyediakan materi dari basic membaca token bundle hingga strategi advanced seperti snipe early project dengan navigasi panel-based interaktif.",
+    desc_en: "An interactive educational platform for the on-chain crypto trading community on Solana. Provides comprehensive materials from basic token bundle reading to advanced strategies like early project sniping.",
+    tech: ["React JS", "Custom SVG", "Interactive UI"],
+    year: "2026",
+    client: "First Client",
+    mockupType: "desktop",
+    imageSrc: ponyinImg,
+    mockupAccent: "#1a365d",
+    color: "#f8f9fa",
+    accentColor: "#1a365d",
+    featured: true,
+    link: "https://ponyin.id",
+    achievement: "🚀 Official Trading Intel Hub for Ponyin Community",
+    achievement_en: "🚀 Official Trading Intel Hub for Ponyin Community",
+    metrics: ["Panel-based Navigation", "Custom SVG Viz", "Micro-interactions"],
+    modalP1: "Ponyin Trading Intel Hub adalah platform edukasi interaktif yang dirancang khusus untuk komunitas trader crypto on-chain di ekosistem Solana. Website ini hadir menjadi 'one-stop learning center' yang memandu para trader—dari mereka yang baru belajar membaca bundle token dan memahami global fees, hingga mereka yang ingin mendalami strategi tingkat lanjut seperti snipe early project, multi-wallet trading, bahkan interaksi direct contract menggunakan RUST. Keunggulan utama platform ini ada pada penyampaian materinya yang dikemas dalam bahasa sehari-hari.",
+    modalP1_en: "The Ponyin Trading Intel Hub is an interactive educational platform custom-built for the on-chain crypto trading community within the Solana ecosystem. Designed to be the ultimate 'one-stop learning center,' the website covers everything from the absolute basics—like reading token bundles and understanding global fees—to highly advanced tactics like sniping early projects, executing multi-wallet trading strategies, and direct smart contract interactions utilizing RUST.",
+    modalP2: "Secara teknis, platform web ini dikembangkan menggunakan React JS dengan mengedepankan pengalaman belajar yang terstruktur. Sistem navigasinya dibangun berbasis panel (panel-based), di mana pengguna dimanjakan dengan sidebar interaktif, indikator progress membaca, breadcrumb, serta kontrol navigasi prev/next antar materi. Setiap panel diperkaya dengan ilustrasi SVG custom yang merangkum konsep rumit menjadi visual segar yang mudah dicerna.",
+    modalP2_en: "Built meticulously with React JS, the platform prioritizes a highly structured and seamless reading experience. It features a modern, panel-based layout complete with an interactive sidebar, reading progress bars, breadcrumbs, and intuitive previous/next navigation controls. To make learning more engaging, every module is paired with bespoke custom SVG illustrations that visually decode intricate dynamics.",
+    modalP3: "Desainnya sama sekali tidak menggunakan template melainkan sepenuhnya custom-built untuk merepresentasikan identitas visual sang content creator. Estetikanya memadukan tipografi serif dan sans-serif yang elegan, dibalut dalam palet warna bone-white dan deep blue, lengkap dengan micro-interactions yang memanjakan mata yang dapat diakses langsung melalui ponyin.id.",
+    modalP3_en: "Aesthetically, the site breaks away from generic templates, offering a 100% tailor-made design that aligns with the creator's unique identity. The UI embraces an elegant mix of serif and sans-serif typography, painted across a sophisticated bone-white and deep blue color palette, combined with smooth micro-interactions. The result is a premium web experience hosted at ponyin.id."
   },
   {
     id: 2,
